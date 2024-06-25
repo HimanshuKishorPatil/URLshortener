@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+    background-image: url(../../../assets/img/backgroundwall.jpg);
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* ********************************************* */
+
+p{
+  font-weight:900;
+  font-weight: auto;
+  font-size: 300%;
+  color: #f4c531;
+  margin: 30px;
+  padding:0%
+}
+.animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    +225deg,
+    #f4c531 0%,
+    #f3f707 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  /* background-size: auto auto; */
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 5s linear infinite;
+  display: inline-block;
+      /* font-size: 190px; */
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* ******************************************* */
+
+
+
+
+.loginBx{
+ 
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+    
+}
+
+
+  #infodetail p:hover{
+       p{
+        color: #f4c531;
+       }
+  }
+
+
+  .container {
+    height: 31.25em;
+    width: 31.25em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 0%;
+  }
+  form {
+    width: 23.75em;
+    height: 28em;
+    background-color:transparent;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: calc(50% + 1.8em);
+    left: 50%;
+    padding: 0 2.5em;
+    padding-top: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0.5em;
+    border:2px solid white;
+    backdrop-filter: blur(5px);
+  
+  }
+  /* form label {
+    display: block;
+    margin-bottom: 0.2em;
+    font-weight: 600;
+    color: #2e0d30;
+  } */
+  input{
+    font-size: 0.95em;
+    font-weight: 400;
+    /* color: #3f3554; */
+    padding: 0.8em;
+    border: none;
+    border: 1px solid black;
+    outline: none;
+    background-color:rgb(250, 250, 249);
+    border-radius: 8px;
+    height: 40px;
+
+  }
+  /* remove password view icon */
+  input::-ms-reveal,
+  input::-ms-clear {
+  display: none;
+  }
+
+
+  /* remove arrows in number input */
+  .no-arrows::-webkit-inner-spin-button,
+ 
+  .no-arrows::-webkit-outer-spin-button {
+   
+  -webkit-appearance: none;
+   
+  margin: 0;
+   
+  }
+   
+  .no-arrows {
+   
+  -moz-appearance: textfield;
+   
+  }
+
+  
+  form input:focus {
+    border-color: #f4c531;
+  }
+  form input:not(:last-child) {
+    margin-bottom: 0.9em;
+  }
+  form button {
+    font-size: 0.95em;
+    /* padding: 0.8em 0; */
+    border-radius: 8px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: #f4c531;
+    color: #2e0d30;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    margin: 0.8em;
+  }
+
+  .form-actions button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+
+  form button:hover{
+    background-color: black;
+    color: white;
+  }
+
+  h2{
+    color: #f4c531;
+    margin-bottom: 15px;
+  }
+  h2:hover{
+    color:black;
+  }
+  a{
+    color:#f4c531;
+    text-align: center;
+    cursor: pointer;
+   
+  }
+  a:hover{
+    color: white;
+  
+  }
+  a::selection{
+    color: red;
+  }
+
+
+  
+@media only screen and (max-width:1010px){ 
+  #description{
+    visibility: hidden;
+  }
+
+
+
+form{
+   position: fixed;
+  top:100px;
+  left: 10%;
+  right: auto;
+    
+  
+  
+
+   
+}
+
+
+}

@@ -1,0 +1,61 @@
+*{
+    display: flex;
+}
+
+
+.body{
+   
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    height: 50px;
+    background-color: black;
+    padding-left: 20px;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%;
+    z-index: 10;
+}
+
+img{
+    height: 40px;
+   
+
+    margin-right: 20px;
+}
+i{
+    color: white;
+}
+i:hover{
+    color: yellow;
+}
+.URLs{
+    margin-right: auto;
+}
+
+.name{
+    color: white;
+    margin-right: auto;
+}
+.name:hover{
+    color: yellow;
+    
+}
+button:hover::before {
+
+    content: attr(ttitle);
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 45px;
+    padding: 5px;
+    position: absolute;
+    transform: translateX(-50%);
+    background-color: rgb(83, 80, 80);
+    color: rgb(240, 237, 244);
+
+}
+
+i{
+    padding: 0%;
+    margin:0% ;
+}

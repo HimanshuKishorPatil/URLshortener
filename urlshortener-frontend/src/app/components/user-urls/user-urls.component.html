@@ -1,0 +1,58 @@
+<app-nevbar></app-nevbar>
+<div class="body">
+
+  <div id="heading">
+
+    <h3 class="text text-lime-500 ">Here is the List of Your URLs</h3>
+  </div>
+  <!-- <div style="border: 2px solid black; padding: 0%; display: inline-block;"> -->
+  <table class="table">
+    <thead>
+
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">URL</th>
+        <th scope="col">Shortern URL</th>
+        <th scope="col">Last Modified</th>
+        <th scope="col">Action</th>
+
+
+      </tr>
+    </thead>
+
+    <tbody style="color: black;">
+
+      <tr *ngFor="let UrlList of this.historyService.URLsArray | paginate: { itemsPerPage: 2, currentPage: p }; let i = index">
+
+        <td>{{i+1}}</td>
+        <td>{{UrlList.originalURL }}<button id="copy" style="border-color: transparent;background-color: transparent;"
+            (click)="copyMessage(UrlList.originalURL)"><i ttitle="Copy" class="fa-regular fa-copy fa-xl"></i></button>
+        </td>
+        <td> {{UrlList.shortURL}}<button id="copy" style="border-color: transparent;background-color: transparent;"
+            (click)="copyMessage(UrlList.shortURL)"><i ttitle="Copy" class=" fa-regular fa-copy fa-xl"></i></button>
+        </td>
+        <td>{{UrlList.modified_on | date: 'dd/MM/yyyy' }}</td>
+        <td id="action"><button  (click)="editUrl(UrlList)"><i class="fa-solid fa-pen-to-square fa-xl"></i></button>
+                   
+            <button  (click)="deleteUrl(UrlList)"><i class="fa-solid fa-trash-can fa-xl"></i></button>
+        </td>
+
+
+
+
+
+      </tr>
+
+
+    </tbody>
+    
+  </table>
+  <!-- </div> -->
+
+  <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+  <div *ngIf="edit" style="position: absolute;z-index: 100"><button (click)="closeEditor()"><i
+    class="fa-solid fa-circle-xmark"></i></button><input type="text" (ngModel)="newUrl"><button
+    (click)="modifyUrl(newUrl)">Modify</button></div>
+  <h5 style="margin: 20px;" *ngIf="!isResultLoaded">Loading.................</h5>
+
+</div>

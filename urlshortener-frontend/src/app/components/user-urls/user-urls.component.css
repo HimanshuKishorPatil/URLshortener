@@ -1,0 +1,70 @@
+.body {
+   
+    position:absolute;
+    top: 50px;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    width: 100%;
+    background-color: white;
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 5;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    padding-right: 20px;
+}
+
+
+#heading {
+    display: inline-block;
+}
+
+#heading h3 {
+    border-bottom: 4px solid black;
+}
+
+table {
+    border-collapse: separate !important;
+    margin-top: 30px;
+    border: 2px solid black;
+    
+    border-radius: 6px;
+}
+
+th {
+    background-color: yellow;
+    
+    
+
+}
+
+#action button{
+    margin-right: 8px;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+#action i:hover{
+    color: yellow;
+ 
+}
+
+#copy i {
+    color: yellow;
+
+}
+
+#copy i:hover {
+    color: black;
+
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: yellow;
+    color: black;
+    border:2px solid  black;
+    border-radius: 6px;
+  }

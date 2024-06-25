@@ -1,0 +1,208 @@
+<div class="body" style="display:flex; position:absolute;">
+    <div id="description" style="width: 60%; ">
+        <p class="animate-charcter">Platform To Convert Your Long URLS to the Short One Which Makes It More Engaging,
+            Memorable and Shareable </p>
+    </div>
+
+    <div style="width: 30%;">
+        <!-- <div class="box"> -->
+        <!-- <div class="login"> -->
+        <div class="loginBx" [style]="">
+            <!-- <h2 id="login" style="text-align: center;color: black;"><i class="fa-solid fa-right-to-bracket"></i>
+                    Login</h2> -->
+            <div class="container" id="form" style="display: block;">
+                <form #registrationForm="ngForm" *ngIf="!this.isSignUp && !this.isResetPasswordOpen">
+                    <h2 style="text-align: center; color:#f4c531;height: 30px;"> Login
+                    </h2>
+                    <!-- <label for="username"></label> -->
+                    <!-- <div class="form-group" style="width: 100%;margin: 0%;padding: 0%;"> -->
+                    <input autocomplete="off" type="text" id="username" placeholder="Email or Mobile here..."
+                        [ngModelOptions]="{standalone: true}" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="username" required>
+                    <!-- </div> -->
+
+
+
+                    <!-- <label for="password"></label> -->
+                    <!-- <div class="form-group"> -->
+                    <input id="password" autocomplete="off" [type]="view ? 'text' : 'password'" id="password"
+                        placeholder="Password here..." [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
+                        required>
+                    <!-- </div> -->
+
+                    <div style="position: absolute; top:131px; left:290px">
+                        <button *ngIf="view" style="background-color: transparent;margin: 0%;padding: 0%;"
+                            (click)="viewPass()"><img style="height: 30px;width: 30px;"
+                                src="../../../assets/img/flashlight (1).png" alt=""></button>
+                        <button *ngIf="!view" style="background-color: transparent;margin: 0%;padding: 0%;"
+                            (click)="viewPass()"><img style="height: 30px;width: 30px;"
+                                src="../../../assets/img/flashlight (2).png" alt=""></button>
+                    </div>
+
+
+                    <a style="color: #f4c531;" (click)="openResetPassword()">Forgot Password?</a>
+                    <!-- <div class="form-actions"> -->
+
+                    <button [disabled]="registrationForm.invalid" (click)="login()">Login</button>
+                    <h6 style="color: red; ">{{this.loginService.errorMessage}}</h6>
+                    <!-- </div> -->
+                    <div style="display: flex;justify-content: center;">
+                        <h6>Not Having Account:</h6>
+                        <a style="color: #f4c531; margin-left: 30px; font-size: 16px;"
+                            (click)="openSignupMenu()">Register</a>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 5px;color: #f4c531; display: flex;">
+                        <p style="border-bottom: 2px solid yellow; width: 80px;"></p>
+                        <h6>Sign Up Using</h6>
+                        <p style="border-bottom: 2px solid yellow; width: 80px;"></p>
+
+
+                    </div>
+
+                    <div style="display: flex; margin-bottom: 30px;justify-content: center;">
+
+
+                        <!-- google auth 2.0 -->
+                        <asl-google-signin-button type='icon' size='large' shape="circle">
+                        </asl-google-signin-button>
+
+
+                        <!-- microsoft -->
+                        <button (click)="maslogin()"
+                            style="background-color:transparent ;margin: 0; margin-left: 40px;"><img
+                                style="height: 42px;" src="../../../assets/img/microsoft.png" alt=""></button>
+                    </div>
+                </form>
+                <!-- Reset Password -->
+                <form *ngIf="this.isResetPasswordOpen">
+                    <h2 style="text-align: center; padding: 0%;">Reset Password</h2>
+                    <!-- <label for="username"></label> -->
+                    <div style="display: flex;">
+                        <input autocomplete="off" type="text" id="username" placeholder="Email or Mobile here..."
+                            [(ngModel)]="newUsername" [ngModelOptions]="{standalone: true}" />
+                        <button style="width: 100px;margin: 0%;position: absolute;margin-left: 220px;padding: 5px;"
+                            (click)="generateOtp()">Get
+                            Otp</button>
+                    </div>
+                    <div style="margin: 0;display: block;">
+                        <div style="display: flex;">
+                            <input class="no-arrows" autocomplete="off" type="number" placeholder="OTP" [(ngModel)]="otp"
+                                [ngModelOptions]="{standalone: true}">
+                            <button style="width: 100px;margin: 0%;position: absolute;margin-left: 220px;padding: 5px;"
+                                (click)="verifyOtp()">verify</button>
+                        </div>
+                        <input id="password" autocomplete="off" type="password" placeholder="create new password"
+                            [(ngModel)]="newPassword" [ngModelOptions]="{standalone: true}">
+                    
+
+
+                        <button (click)="showPasswordSpecification()"
+                            style="background-color: transparent;border-color: transparent;margin: 0;padding: 0;"><i
+                                style="margin-left: 20px;" class="fa-solid fa-circle-info"></i></button>
+
+                        <div *ngIf="this.isPasswordRulesVisible"
+                            style="position: absolute;z-index: 10;top: 200px;left: 290px;border: 2px solid #f4c531; background-color: aliceblue;;border-radius: 5px;color: black;margin: 0%;padding: 1px">
+                            <p id="infodetail"
+                                style="z-index: 100;color: black; font-size:10px ;margin: 1%;font-style: oblique;">
+                                Password must have at least one Uppercase, or lowercase, number, and the length of the
+                                password must be 8-16 character
+                            </p>
+                        </div>
+
+                        <input id="password" autocomplete="off" [type]="view ? 'text' : 'password'" type="password" placeholder="confirm password"
+                            [(ngModel)]="confirmNewPassword" [ngModelOptions]="{standalone: true}">
+
+                            <div style="position: absolute; top:255px; left:205px">
+                                <button *ngIf="view" style="background-color: transparent;margin: 0%;padding: 0%;"
+                                    (click)="viewPass()"><img style="height: 30px;width: 30px;"
+                                        src="../../../assets/img/flashlight (1).png" alt=""></button>
+                                <button *ngIf="!view" style="background-color: transparent;margin: 0%;padding: 0%;"
+                                    (click)="viewPass()"><img style="height: 30px;width: 30px;"
+                                        src="../../../assets/img/flashlight (2).png" alt=""></button>
+                            </div>
+                    </div>
+                    <button (click)="resetPassword()">Confirm
+                        Reset</button>
+                    <div style="justify-content: center;align-items: center;">
+                        <button (click)="closeResetPassword()"
+                            style="width: 80px;margin: 5px;margin-left: 100px;">Login</button>
+                    </div>
+                </form>
+                <!-- new Sign In -->
+                <form loginForm="ngForm" *ngIf="this.isSignUp && !this.isResetPasswordOpen">
+                    <h2 style="text-align: center; padding: 0%;"> Sign Up</h2>
+                    <!-- <label for="username"></label> -->
+                    <div class="form-group" style="display: flex;">
+                        <input style="width: 202px;" class="form-control" autocomplete="off" type="text" id="username"
+                            placeholder="Email or Mobile here..." [(ngModel)]="newUsername"
+                            [ngModelOptions]="{standalone: true}" />
+                        <button style="width: 100px;margin: 0%;position: absolute;margin-left: 220px;padding: 5px;"
+                            (click)="generateOtp()">Get
+                            Otp</button>
+                    </div>
+                    <div style="margin: 0;display: block;">
+                        <div style="display: flex;">
+                            <input class="no-arrows" autocomplete="off" type="number" placeholder="OTP" [(ngModel)]="otp"
+                                [ngModelOptions]="{standalone: true}">
+                            <button style="width: 100px;margin: 0%;position: absolute;margin-left: 220px;padding: 5px;"
+                                (click)="verifyOtp()">verify</button>
+                        </div>
+                        <input id="password" autocomplete="off" type="password" placeholder="create new password"
+                            [(ngModel)]="newPassword" [ngModelOptions]="{standalone: true}">
+
+                        <button (click)="showPasswordSpecification()"
+                            style="background-color: transparent;border-color: transparent;margin: 0;padding: 0;"><i
+                                style="margin-left: 20px;" class="fa-solid fa-circle-info"></i></button>
+
+                        <div *ngIf="this.isPasswordRulesVisible"
+                            style="position: absolute;z-index: 10;top: 200px;left: 290px;border: 2px solid #f4c531; background-color: aliceblue;;border-radius: 5px;color: black;margin: 0%;padding: 1px">
+                            <p id="infodetail"
+                                style="z-index: 100;color: black; font-size:10px ;margin: 1%;font-style: oblique;">
+                                Password must have at least one Uppercase, or lowercase, number, and the length of the
+                                password must be 8-16 character
+                            </p>
+                        </div>
+                        <input id="password" autocomplete="off" [type]="view ? 'text' : 'password'" type="password" placeholder="confirm password"
+                            [(ngModel)]="confirmNewPassword" [ngModelOptions]="{standalone: true}">
+                            <div style="position: absolute; top:255px; left:205px">
+                                <button *ngIf="view" style="background-color: transparent;margin: 0%;padding: 0%;"
+                                    (click)="viewPass()"><img style="height: 30px;width: 30px;"
+                                        src="../../../assets/img/flashlight (1).png" alt=""></button>
+                                <button *ngIf="!view" style="background-color: transparent;margin: 0%;padding: 0%;"
+                                    (click)="viewPass()"><img style="height: 30px;width: 30px;"
+                                        src="../../../assets/img/flashlight (2).png" alt=""></button>
+                            </div>
+                    </div>
+                    <button (click)="register()">Sign Up</button>
+                    <div>
+                        <h6 style="display: inline; margin-left: 0;">Already Having Account</h6>
+                        <button (click)="alreadyAccount()"
+                            style="width: 80px;margin: 5px;margin-left: 12px;">Login</button>
+                           
+                    </div>
+                </form>
+                <!-- <div class="ear-l"></div>
+                    <div class="ear-r"></div>
+                    <div class="panda-face">
+                        <div class="blush-l"></div>
+                        <div class="blush-r"></div>
+                        <div class="eye-l">
+                            <div class="eyeball-l"></div>
+                        </div>
+                        <div class="eye-r">
+                            <div class="eyeball-r"></div>
+                        </div>
+                        <div class="nose"></div>
+                        <div class="mouth"></div>
+                    </div>
+                    <div class="hand-l"></div>
+                    <div class="hand-r"></div>
+                    <div class="paw-l"></div>
+                    <div class="paw-r"></div> -->
+            </div>
+        </div>
+        <!-- </div> -->
+        <!-- </div> -->
+    </div>
+</div>

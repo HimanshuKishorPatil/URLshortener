@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+
+justify-content: center;
+align-items: center;
+
+
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:white;
+    /* background-image: url(../../../assets/img/giphy.gif); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+input{
+    height: 40px;
+    /* display: block; */
+    border-radius: 4px;
+    width: 300px;
+
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: .3s;
+    border:1px solid #d8d8d8;
+}
+
+input:focus{
+    border:1px solid rgb(234, 217, 22);
+    /* box-shadow: 0 0 3px 0 yellow; */
+}
+
+
+#generateUrlButton button {
+    font-weight: bold;
+    padding: 100px;
+    background-color: rgb(250, 234, 6);
+    color: black;
+    padding: 4px;
+    border-radius: 6px;
+   border: transparent;
+   height: 40px;
+   width: 200px;
+   /* font-weight: 300px; */
+}
+#generateUrlButton button:hover{
+    /* box-shadow:  0 0 2px 0 black; */
+    background-color: black;
+    color: white;
+}
+
+i{
+    
+    color: rgb(250, 234, 6);
+    padding: 20px; 
+}
+
+i:hover{
+    color: black; 
+}
+
+
+
+/* popup */
+
+.popup{
+    
+    position:absolute;
+    
+    z-index: 1000;
+    max-width: 600px;
+    max-height: 300px;
+    background-color: white;
+    border:2px solid black;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    padding: 40px;
+    border-radius: 8px;
+    top: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#copypaste button:hover::before {
+
+    content: attr(ttitle);
+    border-radius: 5px;
+    margin-left: 35px;
+    margin-top: 45px;
+    padding: 5px;
+    position: absolute;
+    transform: translateX(-50%);
+    background-color: rgb(83, 80, 80);
+    color: rgb(240, 237, 244);
+
+}
+
+@media only screen and (max-width:1010px){ 
+ 
+  .body{
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    left:20%;
+    justify-content: center;
+  }
+   #generateUrlButton{
+    margin-top: 30px;
+    justify-content: center;
+    margin-left: 50px;
+   }
+  }

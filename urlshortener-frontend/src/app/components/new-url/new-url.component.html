@@ -1,0 +1,33 @@
+<app-nevbar></app-nevbar>
+<div class="body">
+
+
+    <div>
+
+        <input type="url" placeholder="Type or paste link here..." [ngModelOptions]="{standalone: true}" [(ngModel)]="this.longurl" #inputValue>
+        <button ttitle="Paste" style="background-color: transparent; border-color: transparent;" (click)="paste()"><i ttitle="paste" class="fa-solid fa-paste fa-2xl"></i></button>
+    </div>
+    <div id="copypaste"></div>
+    <div id="generateUrlButton">
+
+        <button  (click)="generteShortUrl()">Generate Shorturl</button>
+    </div>
+</div>
+
+
+<div class="popup" *ngIf="this.generateShortUrlService.generatedurl">
+    <div style="display:flex;" id="copypaste">
+        <h4>Short-URL:</h4>
+        <H4>{{this.generateShortUrlService.shortUrl}}</H4><button  (click)="copyMessage(this.generateShortUrlService.shortUrl)" ttitle="Copy" style="background-color: transparent; border-color: transparent;"><i ttitle="Copy"  class="fa-solid fa-copy fa-2xl" style="color: black;"></i></button>
+    </div>
+
+    <div id="generateUrlButton">
+
+        <button (click)="this.generateShortUrlService.close()">Close</button>
+    </div>
+</div>
+
+<div *ngIf="this.historyService.isViewHistory">
+    <app-user-urls></app-user-urls>
+
+</div>
