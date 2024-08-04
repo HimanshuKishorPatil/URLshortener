@@ -19,6 +19,8 @@ import { MaxLengthDirective } from './user/max-length.directive';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
+import {MatButtonModule} from '@angular/material/button';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 
 import {
   GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig,
@@ -26,6 +28,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { TestingComponent } from './compenents/testing/testing.component';
 import { WeatherComponent } from './weather/weather.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 
@@ -62,7 +65,9 @@ return new PublicClientApplication({
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
+  
     GoogleSigninButtonModule,
+  
     ToastrModule.forRoot(),
     OAuthModule.forRoot(),
     // microsoftAzure
@@ -135,7 +140,8 @@ return new PublicClientApplication({
       provide:HTTP_INTERCEPTORS,
       useClass:MsalInterceptor,
       multi:true},
-      MsalGuard],
+      MsalGuard,
+      provideAnimationsAsync()],
     
   bootstrap: [AppComponent,MsalRedirectComponent]
 })

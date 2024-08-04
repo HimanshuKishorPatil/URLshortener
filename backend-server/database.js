@@ -168,7 +168,6 @@ export async function isNewUrlAlreadyExist(newurl){
 export async function isAlreadyShortUrlExist(shortUrl){
     const [row] = await pool.query("select * from url_details where shortURL = ? and isdeleted=0", [shortUrl])
     if(row.length==0)
-       
        return false
     else
        return true
@@ -176,7 +175,7 @@ export async function isAlreadyShortUrlExist(shortUrl){
 
 
 export async function getShortUrlOf(originalUrl){
-    const [row] = await pool.query("select shortURL from url_details where originalURL = ?", [originalUrl])
+    const [row] = await pool.query("select shortURL from url_details wher ce originalURL = ?", [originalUrl])
     return row
 
 

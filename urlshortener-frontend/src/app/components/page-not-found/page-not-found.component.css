@@ -19,3 +19,9 @@ align-items: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+@media (prefers-color-scheme:dark){
+    body{
+        background-color: black;
+        color:white
+    }
+}

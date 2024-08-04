@@ -16,7 +16,12 @@
     padding: 20px;
     padding-right: 20px;
 }
-
+@media (prefers-color-scheme:dark){
+    body{
+        background-color: black;
+        color:white
+    }
+}
 
 #heading {
     display: inline-block;

@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@media (prefers-color-scheme: dark){
+  body{
+      background-color: black;
+      color:white
+  }
+}
+/* @use '@angular/material' as mat;
+
+@include mat.core();
+
+dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$violet-palette,
+  ),
+));
+
+$light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$violet-palette,
+  ),
+));
+
+html {
+
+  @include mat.core-theme($dark-theme);
+  @include mat.button-theme($dark-theme);
+
+  @media (prefers-color-scheme: light) {
+    @include mat.core-color($light-theme);
+    @include mat.button-color($light-theme);
+  }
+} */

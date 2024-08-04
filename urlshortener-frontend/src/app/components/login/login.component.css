@@ -11,7 +11,7 @@
     min-height: 100vh;
     background-color: white;
     background-image: url(../../../assets/img/backgroundwall.jpg);
-    
+   
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -21,21 +21,23 @@ p{
   font-weight:900;
   font-weight: auto;
   font-size: 300%;
-  color: #f4c531;
+
   margin: 30px;
-  padding:0%
+  color: white;
 }
 .animate-charcter
 {
    text-transform: uppercase;
+   -webkit-text-stroke: 2px #fff;
   background-image: linear-gradient(
     +225deg,
-    #f4c531 0%,
-    #f3f707 29%,
-    #ff1361 67%,
-    #fff800 100%
+    #c813f5 0%,
+    #15cce8 29%,
+    #ef0a56 67%,
+    #5908e3 100%
   );
-  /* background-size: auto auto; */
+  
+  
   background-clip: border-box;
   background-size: 200% auto;
   color: #fff;
@@ -45,8 +47,10 @@ p{
   -webkit-text-fill-color: transparent;
   animation: textclip 5s linear infinite;
   display: inline-block;
-      /* font-size: 190px; */
+    opacity: 2;
 }
+
+
 
 @keyframes textclip {
   to {
@@ -60,7 +64,7 @@ p{
 
 
 .loginBx{
- 
+  opacity: 2;
   position:relative;
   display:flex;
   justify-content:center;
@@ -78,6 +82,7 @@ p{
 
 
   .container {
+    opacity: 2;
     height: 31.25em;
     width: 31.25em;
     position: absolute;
@@ -103,7 +108,7 @@ p{
     border-radius: 0.5em;
     border:2px solid white;
     backdrop-filter: blur(5px);
-  
+  opacity: 2;
   }
   /* form label {
     display: block;
