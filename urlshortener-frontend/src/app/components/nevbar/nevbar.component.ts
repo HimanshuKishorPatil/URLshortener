@@ -7,7 +7,7 @@ import { GenerateShortUrlService } from '../../services/generate-short-url.servi
 import { debounceTime } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
-declare var handleSignout: any
+// declare var handleSignout: any
 
 @Component({
 
@@ -46,6 +46,34 @@ export class NevbarComponent {
   delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+
+  changeDarkMode() {
+
+    const bg = Array.from(document.getElementsByClassName('body') as HTMLCollectionOf<HTMLElement>)
+    const nm = Array.from(document.getElementsByClassName('name') as HTMLCollectionOf<HTMLElement>)
+    const symbol = Array.from(document.getElementsByTagName('i') as HTMLCollectionOf<HTMLElement>)
+
+    if (bg != null && nm != null && symbol != null) {
+      bg[0].style.setProperty("background-color", "white");
+      nm[0].style.setProperty("color", "black")
+      symbol[0].style.setProperty("color", "black")
+
+
+    }
+
+  }
+
+  changeLightMode() {
+    const bg = Array.from(document.getElementsByClassName('body') as HTMLCollectionOf<HTMLElement>)
+    const nm = Array.from(document.getElementsByClassName('name') as HTMLCollectionOf<HTMLElement>)
+    const symbol = Array.from(document.getElementsByTagName('i') as HTMLCollectionOf<HTMLElement>)
+
+    if (bg != null && nm != null && symbol != null) {
+      bg[0].style.setProperty("background-color", "black");
+      nm[0].style.setProperty("color", "white")
+      symbol[0].style.setProperty("color", "white")
+    }
+
+  }
+
 }
-
-

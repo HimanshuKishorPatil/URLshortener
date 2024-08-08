@@ -19,8 +19,8 @@ import { MaxLengthDirective } from './user/max-length.directive';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle'
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 
 import {
   GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig,
@@ -29,17 +29,18 @@ import { CommonModule } from '@angular/common';
 import { TestingComponent } from './compenents/testing/testing.component';
 import { WeatherComponent } from './weather/weather.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { FooterComponent } from './footer/footer.component';
 
 
 
-export function MSALInstanceFactory(): IPublicClientApplication{
-return new PublicClientApplication({
-  auth:{
-    clientId:'bb156bf9-8d21-477d-9633-53c4c89eea2f',
-    authority:"https://login.microsoftonline.com/f8cdef31-a31e-4b4a-93e4-5f571e91255a",
-    redirectUri:'http://localhost:4200'
-  }
-})
+export function MSALInstanceFactory(): IPublicClientApplication {
+  return new PublicClientApplication({
+    auth: {
+      clientId: 'bb156bf9-8d21-477d-9633-53c4c89eea2f',
+      authority: "https://login.microsoftonline.com/f8cdef31-a31e-4b4a-93e4-5f571e91255a",
+      redirectUri: 'http://localhost:4200'
+    }
+  })
 }
 @NgModule({
   declarations: [
@@ -52,10 +53,11 @@ return new PublicClientApplication({
     MaxLengthDirective,
     TestingComponent,
     WeatherComponent,
-    
+    FooterComponent,
+
   ],
   imports: [
-   
+
     BrowserModule,
     AppRoutingModule,
     MsalModule,
@@ -65,9 +67,9 @@ return new PublicClientApplication({
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
-  
+    MatSlideToggleModule,
     GoogleSigninButtonModule,
-  
+
     ToastrModule.forRoot(),
     OAuthModule.forRoot(),
     // microsoftAzure
@@ -104,7 +106,7 @@ return new PublicClientApplication({
 
 
   ],
-  providers: [
+  providers: [ HttpClient,NevbarComponent, LoginComponent,FooterComponent,UserURLsComponent,NewURLComponent,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
@@ -120,9 +122,10 @@ return new PublicClientApplication({
         onError: (error) => {
           console.error(error);
         }
-      } as SocialAuthServiceConfig},
+      } as SocialAuthServiceConfig
+    },
 
-    
+
     provideClientHydration(),
     {
       provide: MSAL_INSTANCE,
@@ -130,19 +133,20 @@ return new PublicClientApplication({
     },
 
     // MsalService,
-     HttpClient, LoginComponent,provideHttpClient(withFetch()),
+    provideHttpClient(withFetch()),
     provideAnimations(), // required animations providers
     provideToastr(),
 
 
     // microsoft azure
     {
-      provide:HTTP_INTERCEPTORS,
-      useClass:MsalInterceptor,
-      multi:true},
-      MsalGuard,
-      provideAnimationsAsync()],
-    
-  bootstrap: [AppComponent,MsalRedirectComponent]
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
+    },
+    MsalGuard,
+    provideAnimationsAsync()],
+
+  bootstrap: [AppComponent, MsalRedirectComponent]
 })
 export class AppModule { }

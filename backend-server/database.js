@@ -175,7 +175,7 @@ export async function isAlreadyShortUrlExist(shortUrl){
 
 
 export async function getShortUrlOf(originalUrl){
-    const [row] = await pool.query("select shortURL from url_details wher ce originalURL = ?", [originalUrl])
+    const [row] = await pool.query("select shortURL from url_details where originalURL = ?", [originalUrl])
     return row
 
 

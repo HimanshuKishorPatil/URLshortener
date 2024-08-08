@@ -14,18 +14,14 @@ align-items: center;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color:white;
+    height: 100%;
+    width: 100%;
     /* background-image: url(../../../assets/img/giphy.gif); */
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-@media (prefers-color-scheme: dark){
-    body{
-        background-color: black;
-        color:white
-    }
-}
+
 
 input{
     height: 40px;
@@ -119,13 +115,32 @@ i:hover{
   .body{
     display: inline-block;
     position: absolute;
-    top: 40%;
+    padding-top: 40%;
+    padding-left: 20%;
+    padding-right: 10%;
+    justify-content : center;
+    
+  }
+  input{
+       top: 40%;
     left:20%;
-    justify-content: center;
   }
    #generateUrlButton{
     margin-top: 30px;
     justify-content: center;
     margin-left: 50px;
    }
+  }
+@media (prefers-color-scheme:dark){
+.body{
+    background-color: black;
+}
+i:hover{
+    color: white; 
+}
+#generateUrlButton button:hover{
+    /* box-shadow:  0 0 2px 0 black; */
+    background-color: white;
+    color: black;
+}
   }

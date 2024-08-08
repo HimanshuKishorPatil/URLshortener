@@ -25,9 +25,15 @@
 
         <button (click)="this.generateShortUrlService.close()">Close</button>
     </div>
+   
+</div>
+<div *ngIf="!this.historyService.isViewHistory">
+    <!-- <app-footer></app-footer> -->
 </div>
 
 <div *ngIf="this.historyService.isViewHistory">
     <app-user-urls></app-user-urls>
-
+    <!-- <app-footer></app-footer> -->
 </div>
+
+<app-footer></app-footer>

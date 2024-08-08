@@ -3,6 +3,7 @@ import { LoginService } from './services/login.service';
 import { MsalService } from '@azure/msal-angular';
 import { response } from 'express';
 import { AuthenticationResult } from '@azure/msal-browser';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -15,15 +16,23 @@ export class AppComponent implements OnInit{
 
 ngOnInit(){
   this.updateDarkMode();
-  window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',this.updateDarkMode.bind(this));
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',this.updateDarkMode.bind(this));
+  console.log(this.darkMode)
 
 }
 
-  constructor(public loginService:LoginService, private msalService:MsalService){
+  constructor(public loginService:LoginService, private msalService:MsalService, public footerComponent:FooterComponent){
 
   }
-  updateDarkMode(event?: MediaQueryListEvent) {
-    this.darkMode=window.matchMedia('(prefer-color-scheme: dark)').matches;
+  async updateDarkMode(event?: MediaQueryListEvent) {
+   
+      this.darkMode= window.matchMedia('(prefer-color-scheme: dark)').matches;
+      console.log(this.darkMode)
+      if(this.darkMode){
+        
+        await this.footerComponent.buttonActive();
+      }
+    
     
   }
  

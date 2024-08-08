@@ -1,0 +1,81 @@
+label {
+    width:100px;
+    height:55px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 200px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+    cursor: pointer;
+  }
+
+  label:after {
+    content: "";
+    width:52px;
+    height: 52px;
+    position: absolute;
+    top:1px;
+    left:2px;
+    background: linear-gradient(180deg,#ffcc89,#d8860b);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+  }
+  input {
+    z-index: 90;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  input:checked + label {
+    background: #242424;
+  }
+  input:checked + label:after {
+    left:100px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg,#777,#3a3a3a);
+  }
+  label, label:after {
+    transition: 0.3s
+  }
+
+  label:active:after{ 
+    width: 100px; 
+  }
+
+
+  label svg {
+    position: absolute;
+    width: 50px;
+    
+    z-index: 100;
+   
+  }
+  label svg.sun {
+    width: 40px;
+    top:-72px;
+    left:6px;
+    fill:#e3ea0e;
+    transition: 0.3s;
+    background-image: url("../../assets/img/lightmode.svg");
+  }
+  label svg.moon {
+    top:6px;
+    width: 40px;
+    left:55px;
+    fill:#7e7e7e;
+    transition: 0.3s;
+    background-image: url("../../assets/img/lightmode.svg");
+  }
+  input:checked + label svg.sun {
+    fill:#f2f0ec;
+    
+  }
+  input:checked + label svg.moon {
+    fill:#fff;
+    src: url("../../assets/img/dark.svg");
+  }
+/* darkmode */
+@media (prefers-color-scheme:dark) {
+  
+}

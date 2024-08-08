@@ -3,12 +3,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@media (prefers-color-scheme: dark){
-  body{
-      background-color: black;
-      color:white
-  }
-}
+
 /* @use '@angular/material' as mat;
 
 @include mat.core();
@@ -37,3 +32,4 @@ html {
     @include mat.button-color($light-theme);
   }
 } */
+

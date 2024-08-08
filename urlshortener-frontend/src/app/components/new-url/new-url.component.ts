@@ -1,8 +1,9 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostBinding, Renderer2, ViewChild } from '@angular/core';
 import { HistoryService } from '../../services/history.service';
 import { GenerateShortUrlService } from '../../services/generate-short-url.service';
 import { LoginService } from '../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-new-url',
@@ -10,19 +11,30 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './new-url.component.css'
 })
 export class NewURLComponent {
-  inputValue:String=''
- 
+  inputValue: String = ''
 
+
+  @HostBinding('class.dark-mode') darkMode: boolean = false;
 
 
   longurl: string = "";
 
+  ngOnInit() {
+    this.updateDarkMode();
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.updateDarkMode.bind(this));
+
+  }
 
 
-  constructor(public historyService: HistoryService, public generateShortUrlService: GenerateShortUrlService, private loginService: LoginService,private renderer: Renderer2, private toastr:ToastrService) { }
- 
- 
-  copyMessage(val: string){
+  updateDarkMode(event?: MediaQueryListEvent) {
+    this.darkMode = window.matchMedia('(prefer-color-scheme: dark)').matches;
+
+  }
+
+  constructor(public historyService: HistoryService, public generateShortUrlService: GenerateShortUrlService, private loginService: LoginService, private renderer: Renderer2, private toastr: ToastrService) { }
+
+
+  copyMessage(val: string) {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
@@ -50,7 +62,7 @@ export class NewURLComponent {
     const verified: boolean = this.generateShortUrlService.verifyURL(this.longurl)
     // console.log(verified)
 
-  
+
 
     if (verified) {
       // const alreadyexist: boolean = this.generateShortUrlService.isExist(this.longurl)
@@ -59,9 +71,9 @@ export class NewURLComponent {
       //   alert("already exist")
       // }
       // else {
-        await this.generateShortUrlService.generateShortURL(data);
-        this.generateShortUrlService.showURL()
-        // console.log("reached")
+      await this.generateShortUrlService.generateShortURL(data);
+      this.generateShortUrlService.showURL()
+      // console.log("reached")
       // }
 
     }
@@ -70,4 +82,49 @@ export class NewURLComponent {
     }
 
   }
+
+  changeDarkMode() {
+    
+     const bg=Array.from(document.getElementsByClassName('body') as HTMLCollectionOf<HTMLElement>)
+     const iTag= Array.from(document.getElementsByTagName('i') as HTMLCollectionOf<HTMLElement>) 
+     if (bg != null) {
+        var i;
+        for (i = 0; i < bg.length; i++) {
+          bg[i+1].style.setProperty("background-color", "black")
+          iTag[1].style.setProperty(   "color", "white" )
+        }
+      
+      }
+    
+  }
+
+  changeLightMode(){
+    const bg=Array.from(document.getElementsByClassName('body') as HTMLCollectionOf<HTMLElement>)
+    const iTag= Array.from(document.getElementsByTagName('i') as HTMLCollectionOf<HTMLElement>) 
+    const button=Array.from(document.getElementsByTagName('button')as HTMLCollectionOf<HTMLElement>)
+    if (bg != null) {
+      var i;
+      for (i = 0; i < bg.length; i++) {
+        bg[i+1].style.setProperty("background-color", "white")
+        iTag[1].style.setProperty(   "color", "black" )
+       
+      }
+    
+    }
+
+  }
+
+  // @media (prefers-color-scheme:dark){
+  //   .body{
+  //       background-color: black;
+  //   }
+  //   i:hover{
+  //       color: white; 
+  //   }
+  //   #generateUrlButton button:hover{
+  //       /* box-shadow:  0 0 2px 0 black; */
+  //       background-color: white;
+  //       color: black;
+  //   }
+  //     }
 }
