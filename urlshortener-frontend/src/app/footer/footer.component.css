@@ -1,20 +1,28 @@
+body{
+  
+  margin:0;
+  padding:0;
+}
+
 label {
-    width:100px;
-    height:55px;
+    width:50px;
+    height:25px;
+    margin: 5px;
     position: relative;
     display: block;
     background: #ebebeb;
     border-radius: 200px;
     box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
     cursor: pointer;
+    /* top:-17px; */
   }
 
   label:after {
     content: "";
-    width:52px;
-    height: 52px;
+    width:25px;
+    height: 25px;
     position: absolute;
-    top:1px;
+    /* top:-17px; */
     left:2px;
     background: linear-gradient(180deg,#ffcc89,#d8860b);
     border-radius: 180px;
@@ -31,7 +39,7 @@ label {
     background: #242424;
   }
   input:checked + label:after {
-    left:100px;
+    left:50px;
     transform: translateX(-100%);
     background: linear-gradient(180deg,#777,#3a3a3a);
   }
@@ -40,29 +48,30 @@ label {
   }
 
   label:active:after{ 
-    width: 100px; 
+    width: 25px; 
   }
 
 
   label svg {
     position: absolute;
-    width: 50px;
+    width: 25px;
     
     z-index: 100;
    
   }
   label svg.sun {
-    width: 40px;
-    top:-72px;
-    left:6px;
+    width: 17px;
+    /* top:6px; */
+    top: -87px;
+    left:5px;
     fill:#e3ea0e;
     transition: 0.3s;
     background-image: url("../../assets/img/lightmode.svg");
   }
   label svg.moon {
-    top:6px;
-    width: 40px;
-    left:55px;
+    top:4px;
+    width:17px;
+    left:28px;
     fill:#7e7e7e;
     transition: 0.3s;
     background-image: url("../../assets/img/lightmode.svg");
