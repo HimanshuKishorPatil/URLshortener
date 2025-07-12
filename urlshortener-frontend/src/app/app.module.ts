@@ -106,7 +106,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 
 
   ],
-  providers: [ HttpClient,NevbarComponent, LoginComponent,FooterComponent,UserURLsComponent,NewURLComponent,
+  providers: [ HttpClient,NevbarComponent, {provide:LoginComponent, useClass:LoginComponent},FooterComponent,UserURLsComponent,NewURLComponent,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
