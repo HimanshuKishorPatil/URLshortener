@@ -236,6 +236,7 @@ app.post("/login", async (req, res) => {
     const hashedPassword = await getExistUserPassword(username);
     async function comparePassword(plaintextPassword, hash) {
       const result = await bcrypt.compare(plaintextPassword, hash);
+      console.log(result)
       return result;
     }
     const isvalid = await comparePassword(password, hashedPassword[0].password)
@@ -310,12 +311,14 @@ app.post('/generateshortUrl', async (req, res) => {
 
 app.get('/getHistory/:UUID', async (req, res) => {
   const UUID = req.params.UUID;
-  try {
+  console.log(UUID)
+  // try {
     const resultData = await getUserUrlHistory(UUID)
+    console.log(resultData)
     res.status(200).send(resultData)
-  } catch (error) {
-    res.status(400).send("fail")
-  }
+  // } catch (error) {
+  //   res.status(400).send("fail")
+  // }
 });
 
 

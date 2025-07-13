@@ -151,7 +151,9 @@ export async function getMappedLongUrlOf(shortUrl){
 
 
 export async function getUserUrlHistory(UUID){
-    const [rows] = await pool.query("select * from url_details where UUID=? and isdeleted=0",[UUID]);
+    const [rows] = await pool.query("select * from url_details where GUID=? and isdeleted=0",[UUID]);
+    console.log("33333333333333333333333333333333333333333333")
+    console.log(rows)
     return rows  
 }
 

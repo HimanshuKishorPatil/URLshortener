@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authGService.authState.subscribe(async (user) => {
       this.loginService.isLoggedIn = (user != null);
       if (user != null) {
-        // localStorage.setItem('isLoggedIn', "true");
+        localStorage.setItem('isLoggedIn', "true");
        
         // console.log(user.id)
         await this.loginService.signInWithGoogle(user.id)
