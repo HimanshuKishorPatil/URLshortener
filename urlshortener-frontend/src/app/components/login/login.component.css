@@ -216,16 +216,56 @@ p{
 
 
 form{
-   position: fixed;
+   /* position: fixed;
   top:100px;
   left: 10%;
-  right: auto;
-    
-  
-  
+  right: auto;  */
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 400px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 10px;
 
-   
 }
 
 
 }
+
+
+
+
+/* jsflhifhalksflakfhaksdfhsdhflkajdfhkadshfkafhkasdhfkasdf */
+
+
+/* 
+@media only screen and (max-width: 768px) {
+  .body {
+    padding: 1rem;
+    background-size: cover;
+  }
+
+  p {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+
+  form {
+    padding: 1rem;
+  }
+
+ 
+} */

@@ -31,7 +31,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FooterComponent } from './footer/footer.component';
 
-
+import { APP_BASE_HREF } from '@angular/common';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -145,7 +145,13 @@ export function MSALInstanceFactory(): IPublicClientApplication {
       multi: true
     },
     MsalGuard,
-    provideAnimationsAsync()],
+    provideAnimationsAsync(),
+  
+    /** ✅ Add this for GitHub Pages routing to work */
+    { provide: APP_BASE_HREF, useValue: '/URLshortener/' }
+  ],
+
+    
 
   bootstrap: [AppComponent, MsalRedirectComponent]
 })
