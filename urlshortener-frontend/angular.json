@@ -61,7 +61,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/urlshortener/"
             },
             "development": {
               "optimization": false,
