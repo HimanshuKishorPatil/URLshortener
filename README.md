@@ -208,14 +208,3 @@ http://localhost:4200/
 Maintained by: **Himanshu Patil**
 Issues? Suggestions? Create a GitHub issue or drop a message.
 
----
-
-```
-
----
-
-Let me know if:
-- You want a GitHub Actions CI/CD setup
-- You want to deploy this on Render, Vercel, or Netlify
-- You need a sample `.env` or export Postman collection for testing APIs
-```
